@@ -7,28 +7,119 @@
 
 ---
 
-![QQ](images/qq.png)<!-- .element width="45%" height="80%" -->
+## Java
+
+又一门高级程序设计语言。
+
+---
+
+## 为什么（又）要学Java？
+
+- 缺学分
+- 找工作
+- 交朋友
+- ...
+  
+---
+
+## 缺学分的，这课不适合你
+
+- 去年
+  - 选课：150人（名单：170人，退选：20人）
+  - 及格：106人（70.6%）
+  - 100~90：11人(7.3%)；90～80：30人(20%)；80~70:43人(28.7%)；70~60：22人(14.7%)
+  
+---
+
+## 作业又多有难
+
+![葫芦娃](images/huluwa.jpeg)
+
+葫芦娃系列作业
+
+<small>https://github.com/njuics/java-2017f-homework</small>
+
+---
+
+## 大作业遭到控诉：葫芦娃大战妖精
+
+  - <small>要求以Java语言编写程序，开发一个展现葫芦娃与妖精大战的图形化应用，具体要求包括：</small>
+
+    - <small>绘制一个NxM的二维空间（N和M足够大，空间左上角为原点，向右向下分别为X轴和Y轴正方向），该空间中的任意一个位置坐标上可且仅可站立一个生物体（葫芦娃、老爷爷、蛇精、蝎子精、小喽啰均属于生物体）；</small>
+    - <small>请让七个兄弟和老爷爷以下图中的某种阵型在空间的左侧战队；请让妖精（蛇精、蝎子精、小喽啰）以下图中的某种阵型在空间右侧战队；</small>
+    - <small>以上各生物体均实现为一个线程（注：此处要求大家用线程是为了验证各位是否掌握了多线程并发编程，实际上GUI应用中应该用Swing Timer来进行UI刷新）；</small>
+    - <small>按空格键时所有生物体线程执行start()，向敌方前进；</small>
+    - <small>当某个生物体于敌方相遇（两者间的X轴距离和Y轴距离小于某个常量）时，选取一个概率决定双方生死，死者留下实体，生者寻找下一个敌人攻击；</small>
+    - <small>某一方生物全部死亡时，结束。</small>
+
+---
+
+## 也有挺过来的
+
+![1](images/1.png)<!-- .element width="80%" height="65%" -->
+
+---
+
+## 也有挺过来的
+
+![2](images/tang.gif)
+
+---
+
+## 也有挺过来的
+
+![3](images/lu.gif)<!-- .element width="65%" height="65%" -->
+
+---
+
+## 找工作的，这课不是很适合你
+
+![Rank](images/language-rank.png)<!-- .element width="65%" height="65%" -->
+
+目前看来，学JS、Python才是王道
+
+---
+
+> java作为第一大语言主要用来做什么?他有什么优势导致这种现象？
+
+
+https://www.zhihu.com/question/54880498
+
+---
+
+## 前导课程要求
+
+** 至少一门高级程序设计语言 **
+
+如果C++学得很好，特别是面向对象编程思想领悟到位，建议不选（但不接受免修不免考）。
+
+---
+
+## Java相关课程（后续）
+
+- 软件工程综合实验
+- 大数据综合实验
+- 软件体系结构
+- 面向对象技术
+- ...
+
+---
+
+## 交朋友的，加个QQ
+
+
+![QQ](images/QQ.JPG)<!-- .element width="45%" height="80%" -->
 
 ---
 
 ## 课程网站
 
 
-- 仓库：https://github.com/njuics/java-2017f
-- 页面： https://njuics.github.io/java-2017f
-- 作业：https://github.com/njuics/java-2017f-homework
+- 仓库：https://github.com/njuics/java-2018f
+- 页面： https://njuics.github.io/java-2018f
+- 作业：https://github.com/njuics/java-2018f-homework
 
-![github](https://www.appnovation.com/sites/default/files/2016-12/github.png)<!-- .element height="30%" width="30%" --> 
-
----
-
-## 目录（WWW）
-
-- **W**hy - 为什么要学Java？
-
-- **W**hat - 什么是Java？
-
-- Ho**w** - 怎么学Java？
+![github](images/github.png)<!-- .element height="30%" width="60%" --> 
 
 ---
 
@@ -37,7 +128,6 @@
 ![Gosling](images/James_Gosling.jpg) <!-- .element height="65%" width="50%" --> 
 
 James Gosling
-
 
 ---
 
@@ -56,26 +146,28 @@ James Gosling
 
 ## Java SDK
 
-
 - JDK 1.02 (1995)
 - JDK 1.1 (1996)
 - Java 2 SDK v 1.2 (a.k.a JDK 1.2, 1998)
 - Java 2 SDK v 1.3 (a.k.a JDK 1.3, 2000)
 - Java 2 SDK v 1.4 (a.k.a JDK 1.4, 2002)
 - ...
-- Java 8 SDK (current) <small>http://www.oracle.com/technetwork/java/javase/downloads/index.html</small>
-- Java 9 SDK （coming ...)
+- Java 8 SDK (current)
+- Java 9 SDK
+- Java 10 SDK （current)
+  
+<small>http://www.oracle.com/technetwork/java/javase/downloads/index.html</small>
 
 ---
 
 ## JDK Editions
 
 - Java Standard Edition (J2SE)
-  - J2SE can be used to develop client-side standalone applications or applets.
+  - J2SE can be used to develop client-side standalone applications or applets
 - Java Enterprise Edition (J2EE)
-  - J2EE can be used to develop server-side applications such as Java servlets and Java ServerPages. 
-- Java Micro Edition (J2ME). 
-  - J2ME can be used to develop applications for mobile devices such as cell phones. 
+  - J2EE can be used to develop server-side applications such as Java servlets and Java ServerPages
+- Java Micro Edition (J2ME)
+  - J2ME can be used to develop applications for mobile devices such as cell phones
 
 
 ---
@@ -98,19 +190,16 @@ James Gosling
 
 ---
 
-
-
 ## Java IDE （Dead）
 
-- IBM Visual Age for Java 
+- IBM Visual Age for Java
 - Microsoft Visual J++
 - Borland JBuilder
-- Forte by Sun MicroSystems 
+- Forte by Sun MicroSystems
 
 ---
 
 ## Java IDE
-
 
 - NetBeans https://netbeans.org/
 
@@ -123,8 +212,9 @@ James Gosling
 
 ## 教材
 
-![thinkinginjava](https://images-cn.ssl-images-amazon.com/images/I/51t6VpLFJ6L._SX328_BO1,204,203,200_.jpg) <!-- .element height="60%" width="40%" --> 
+![thinkinginjava](images/thinking-in-java.png) <!-- .element height="65%" width="40%" --> 
 
+The forth edition，1400+ pages
 
 ---
 
@@ -132,10 +222,10 @@ James Gosling
 
 ```Java
 //This is my first java program. 
-package njuics.java2017;
+package njuics.java2018;
 
-public class HelloWorld {	
-  public static void main(String[] args) { 
+public class HelloWorld {
+  public static void main(String[] args) {
     System.out.println("Hello World!");
   }
 }
@@ -149,15 +239,15 @@ public class HelloWorld {
 
 ### 编译
 
-```bash
+``` bash
 javac HelloWorld.java
 ```
 
-
 ### 运行
 
-```bash
-java HelloWorld
+``` bash
+mv HelloWorld.class njuics/java2018
+java njuics.java2018.HelloWorld
 ```
 
 ![](images/compiling.gif)
@@ -167,9 +257,9 @@ java HelloWorld
 ## 上册
 
 1. 语言基础 (`Introduction`, `Primitives`, `Operators`, `Controlling Exection`)
-2. 面向对象 （`Introdction to Objects`, `Everything is an Object`, `Initialization & Cleanup`)
-3. 面向对象 (`Access Control`, `Resuing Classes`)
-4. 面向对象 (`Interfaces`, `Polymorphism`, `Inner Classes`)
+2. 面向对象I （`Introdction to Objects`, `Everything is an Object`, `Initialization & Cleanup`)
+3. 面向对象II (`Access Control`, `Resuing Classes`)
+4. 面向对象III (`Interfaces`, `Polymorphism`, `Inner Classes`)
 5. Desigin by Contract & UML 🚺
 
 
