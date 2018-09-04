@@ -3,7 +3,7 @@
 
 <small>曹春 caochun@gmail.com</small>
 
-<small> 余萍 yuping.nju@gmail.com</small>
+<small> 🚺余萍 yuping.nju@gmail.com</small>
 
 ---
 
@@ -31,7 +31,7 @@
   
 ---
 
-## 作业又多有难
+## 作业又多又难
 
 ![葫芦娃](images/huluwa.jpeg)
 
@@ -41,10 +41,11 @@
 
 ---
 
-## 大作业遭到控诉：葫芦娃大战妖精
+## 大作业遭到控诉
 
-  - <small>要求以Java语言编写程序，开发一个展现葫芦娃与妖精大战的图形化应用，具体要求包括：</small>
+葫芦娃大战妖精
 
+  - <small>开发一个展现葫芦娃与妖精大战的图形化应用</small>
     - <small>绘制一个NxM的二维空间（N和M足够大，空间左上角为原点，向右向下分别为X轴和Y轴正方向），该空间中的任意一个位置坐标上可且仅可站立一个生物体（葫芦娃、老爷爷、蛇精、蝎子精、小喽啰均属于生物体）；</small>
     - <small>请让七个兄弟和老爷爷以下图中的某种阵型在空间的左侧战队；请让妖精（蛇精、蝎子精、小喽啰）以下图中的某种阵型在空间右侧战队；</small>
     - <small>以上各生物体均实现为一个线程（注：此处要求大家用线程是为了验证各位是否掌握了多线程并发编程，实际上GUI应用中应该用Swing Timer来进行UI刷新）；</small>
@@ -79,6 +80,8 @@
 目前看来，学JS、Python才是王道
 
 ---
+
+## WHY
 
 > java作为第一大语言主要用来做什么?他有什么优势导致这种现象？
 
@@ -140,7 +143,7 @@ James Gosling
 
 ## HotJava
 
-![hotjava](images/hotjava.png)  <!-- .element height="80%" width="80%" --> 
+![hotjava](images/hotjava.png)  <!-- .element height="60%" width="60%" --> 
 
 ---
 
