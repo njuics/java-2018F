@@ -92,6 +92,7 @@
 ---
 
 ## 数据存储空间大小
+
 | 类型        | 内存          | 数值范围  |
 | - |:-:| -:|
 | `byte`      | 1 | `-128`～`127` |
@@ -103,14 +104,14 @@
 | `char` | 2      |    `\u0000`~`\uFFFF`|
 | `boolean` | 1      |   `true` or `false` |
 
-
 ---
 
 ## SizeOf
+
 ```java
   private static void calSize() {  
         System.out.println("Integer: " + Integer.SIZE/8);           // 4  
-        System.out.println("Short: " + Short.SIZE/8);               // 2      
+        System.out.println("Short: " + Short.SIZE/8);               // 2
         System.out.println("Long: " + Long.SIZE/8);                 // 8  
         System.out.println("Byte: " + Byte.SIZE/8);                 // 1  
         System.out.println("Character: " + Character.SIZE/8);       // 2  
@@ -156,7 +157,7 @@ float b=0f,c,d=1.3f;
   - 方法参数（变量）：作用域为传递给的那个方法；
   - 异常处理参数：传递给异常处理代码，作用域是异常处理部分。
 
---- 
+---
 
 ## 运算符
 
@@ -174,16 +175,17 @@ float b=0f,c,d=1.3f;
 
 - 表达式是由操作数和运算符按照一定的语法形式组成的符号序列，计算出单一值。Java允许使用各种较小的表达式构成复合表达式，但表达式各个部分的数据类型要匹配。
 
-```java
+``` java
 a=0
 ```
-```java
+
+``` java
 value1==value2
 ```
-```
+
+``` java
 1 * 2 * 3
 ```
-
 
 ---
 
@@ -201,7 +203,7 @@ anArray[0] = 100;
 System.out.println("Element 1 at index 0: " + anArray[0]);
 
 int result = 1 + 2; // result is now 3
-if (value1 == value2) 
+if (value1 == value2)
     System.out.println("value1 == value2");
 ```
 
@@ -210,7 +212,8 @@ if (value1 == value2)
 ## 块（Block）
 
 - 是位于成对大括号之间的零个或多个语句的语句组，可以在允许使用单一语句的任何位置使用块。
-```java
+
+``` java
 class BlockDemo {
      public static void main(String[] args) {
           boolean condition = true;
@@ -225,7 +228,6 @@ class BlockDemo {
 ```
 
 ---
-
 
 ## 编码规范
 
@@ -258,10 +260,10 @@ class BlockDemo {
   - 常量：一般全大写，如果由多个单词组成则中间用下划线相连。如果是对象类型的常量，则是大小写混合，由大写字母把单词隔开，如STR_LENGTH
   - 组件：使用完整的英文描述来说明组件的用途，尾部应该加上组件类型，如okButton。
 
-
-
 ---
-<small>
+
+### 示例
+
 ```java
 /*
   Find Largest and Smallest Number in an Array Example
@@ -288,7 +290,6 @@ public class FindLargestSmallestNumber {
 }
 
 ```
-</small>
 
 ---
 
