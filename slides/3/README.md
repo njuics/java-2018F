@@ -406,10 +406,12 @@ class Society{
     members[0] = you;
     members[1] = me;
   }
+  
   void functioning(){
-    while(!me.isDead() && !you.isDead()){
-      me.talk();
-      you.talk();
+    for (int i=0; i< memebers.length; i++){
+      if (!member[i].isDead()){
+        member[i].talk();
+      }
     }
   }
 
