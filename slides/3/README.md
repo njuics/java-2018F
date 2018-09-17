@@ -269,11 +269,11 @@ class Society {
   }
 
   void functioning(){
-    while(!me.isDead() && !you.isDead()){
-      me.talk();
-      me.eat();
-      you.talk();
-      you.eat();
+    for (int i=0; i< memebers.length; i++){
+      if (!member[i].isDead()){
+        member[i].talk();
+        member[i].eat();
+      }
     }
   }
 
