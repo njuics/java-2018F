@@ -7,6 +7,52 @@
 
 ---
 
+## 复杂性是软件开发过程中所固有的特质。
+      
+<font size=8> - Grandy Booch, 1994 </font>
+
+---
+
+## 应对复杂性的基本途径
+
+ <font color=red>元方法</font>
+- 分解   （分而治之）
+- 抽象   （抓本质，抓重点）
+- 层次化  （纲举目张）
+
+
+ <span style="color:#0099ff">面向过程 vs. 面向对象</span> <!-- .element: class="fragment" -->
+
+---
+
+## 模块化
+
+- 模块(module): “Self-Contained”; well-defined interfaces
+- 模块化(modular): 软件构造为一组“模块”之有序组合，从而易于装配、易于修补替换模块。
+- Extendibility 和 Reusability 的要求
+
+---
+
+## 软件复用
+
+- 为什么要复用？
+- 复用什么？
+- 复用的技术问题？
+
+
+---
+
+## 过程抽象 --> 数据抽象
+## 结构化 --> 面向对象
+
+ <span style="color:#0099ff">软件工程发展的历史就是人们不断追求更高的抽象、封装和模块化的历史。</span> <!-- .element: class="fragment" -->
+
+---
+
+## But OOPL == OOSC ?
+
+---
+
 ## SOLID
 
 
