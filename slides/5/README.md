@@ -53,6 +53,15 @@
 
 ---
 
+## 软件设计
+
+- 遵循<font color=red>敏捷实践</font>去发现问题；
+- 应用<font color=red>设计原则</font>去诊断问题；
+- 应用适当的<font color=red>设计模式</font>去解决问题。
+
+
+---
+
 ## SOLID
 
 
