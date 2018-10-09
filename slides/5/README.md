@@ -9,7 +9,7 @@
 
 ## 复杂性是软件开发过程中所固有的特质。
       
-<font size=8> - Grandy Booch, 1994 </font>
+<font size=8> - Grady Booch, 1994 </font>
 
 ---
 
