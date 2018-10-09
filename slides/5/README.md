@@ -49,7 +49,7 @@
 
 ---
 
-## But OOPL == OOSC ?
+## But OOP == OOSC ?
 
 ---
 
