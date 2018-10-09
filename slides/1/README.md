@@ -263,7 +263,7 @@ java njuics.java2018.HelloWorld
 2. 面向对象I （`Introdction to Objects`, `Everything is an Object`, `Initialization & Cleanup`)
 3. 面向对象II (`Access Control`, `Resuing Classes`)
 4. 面向对象III (`Interfaces`, `Polymorphism`, `Inner Classes`)
-5. Desigin by Contract & UML 🚺
+5. 面向对象设计原则（`Object-oriented Design Principle`） 🚺
 
 
 ---
