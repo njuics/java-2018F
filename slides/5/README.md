@@ -49,6 +49,13 @@
 
 ---
 
+## OOSC
+
+Bertrand Meyer:
+“Object-oriented software construction is the approach to system structuring that bases the architecture of software systems on <font color=red>the types of objects </font> they manipulate — not on the function they achieve.
+
+---
+
 ## But OOP == OOSC ?
 
 ---
@@ -623,6 +630,12 @@ public class Button{
   + <font size=6> 在类的结构设计上，每一个类都应当尽量降低成员的访问权限。一个类不应当public自己的属性，而应当提供取值和赋值的方法让外界间接访问自己的属性。</font>
   + <font size=6> 在类的设计上，只要有可能，一个类应当设计成<font color="red">不变类</font>。</font>
   + <font size=6> 在对其它对象的引用上，一个类对其它对象的引用应该降到最低。</font>
+
+---
+
+## OOSC
+
+Bertrand Meyer: “Object-oriented software construction is the construction of software systems as <font color=red>structured collections</font> of possibly partial <font color=red>abstract data type </font> implementations.”
 
 ---
 
