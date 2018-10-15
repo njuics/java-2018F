@@ -18,4 +18,5 @@ http-server
 ### 2. [语言基础](slides/2/2.html)
 ### 3. [面向对象编程](slides/3/3.html)
 ### 4. [更多关于面向对象](slides/4/4.html)
-### 5. [面向对象设计原则](slides/5/5.html)
+### 5. [设计原则](slides/5/5.html)
+### 6. [异常处理](slides/6/6.html)
