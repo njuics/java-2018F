@@ -345,7 +345,7 @@ public class ChainedExceptionDemo {
 
 ## Exception matching
 
-- When an exception is thrown, the exception-handling system looks through the <font color=red>"nearest"</font> handlers in the order they are written. When it finds a match, the exception is considered handled, and no further serarching occurs.
+- When an exception is thrown, the exception-handling system looks through the <font color=red>"nearest"</font> handlers in the order they are written. When it finds a match, the exception is considered handled, and no further searching occurs.
 
 - A derived-class object will match a handler for the base class.
 
