@@ -307,15 +307,7 @@ Collections.shuffle(arrayList);
   + a ***doubly-linked*** list implementation
   + May provide better performance than ArrayList
     + if elements frequently inserted/deleted within the List
-  + For queues and double-ended queuse (deques)
-
----
-
-## List Implementations
-
-<br/>
-- Vector
-  + a synchronized resizable-array implementation of a List with additional "legacy" methods.
+  + For queues and double-ended queues (deques)
 
 ---
 
@@ -357,6 +349,14 @@ public static void main(String[] args) {
     System.out.print(listIterator.previous() + " "); } }
 }
 ```
+
+---
+
+## List Implementations
+
+<br/>
+- Vector
+  + a synchronized resizable-array implementation of a List with additional "legacy" methods.
 
 ---
 

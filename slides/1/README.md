@@ -272,7 +272,7 @@ java njuics.java2018.HelloWorld
 
 6. 异常处理 (`Error Handling with Exceptions`) 🚺
 7. 类加载和自省
-8. 工具 (`Holding your objects`, `Strings`, `Arrays`) 🚺
+8. 集合框架 (`Holding your objects`, `Strings`, `Arrays`) 🚺
 9. 类型 (`Type Information`, `Generic`, `Container in Depth`)
 10. 标注和测试（`Annotations`/Testing）
 11. 工程工具（Maven/Gradle/CI）
