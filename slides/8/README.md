@@ -637,7 +637,7 @@ public class TestTreeSetWithComparator {
 
 ``` java
 import java.util.*;
-public class HasMapTest {
+public class HashMapTest {
   public static void main(String[] args) {
     //map to hold student grades
     Map<String, Integer> theMap = new HashMap<String, Integer>();
