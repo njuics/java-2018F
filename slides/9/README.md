@@ -2,7 +2,7 @@
 ## 泛型 Generics
 
 
-<small>--这可能是《Thinking in Java》中最难理解的一章。</small>
+<small>--这可能是这门课中最难理解的一章。</small>
 
 ---
 
