@@ -180,10 +180,10 @@ public class SSDComputer{
 ## 抽象一下
 ``` java
 
-public interface Disk{};
+public abstract class Disk{};
 public class SSD extends Disk{};
 public class HHD extends Disk{};
-public class SSDComputer{
+public class Computer{
 
     private Disk disk;   // 抽象的硬盘
     
