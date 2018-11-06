@@ -6,10 +6,17 @@
 
 ---
 
+## 泛型
+
+泛型程序设计（generic programming）是程序设计语言的一种风格或范式。泛型允许程序员在强类型程序设计语言中编写代码时使用一些以后才指定的类型，在实例化时作为参数指明这些类型。... Ada、Delphi、Eiffel、Java、C#、F#、Swift 和 Visual Basic .NET 称之为泛型（generics）；ML、Scala 和 Haskell 称之为参数多态（parametric polymorphism）；C++ 和 D称之为模板。《Design Patterns》一书称之为参数化类型（parameterized type）。
+
+<small>- https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B</small>
+
+---
+
 ## Java Generics
 
 - A way to control a class type definitions
-- Otherwise known as *parameterised types* or *templates*
 - A way of improving the clarity of code
 - A way of avoiding (**casts**) in code, turning run-time errors (typically **ClassCastException**) into compile-time errors.
 
@@ -46,13 +53,6 @@ st.push(s);
 s = st.pop();
 
 ```
-
-
----
-
-## 泛型是什么
-
-泛型：参数化类型。
 
 ---
 
@@ -188,7 +188,7 @@ public class SSDComputer{
     private Disk disk;   // 抽象的硬盘
     
     Computer(Disk disk){
-        disk = disk;
+        this.disk = disk;
     }
     
     public Data readDisk(){
@@ -211,7 +211,7 @@ public class SSDComputer{
 public class Computer<T extends Disk>{
     private T disk;   // 参数类
     Computer(T disk){
-        disk = disk;
+        this.disk = disk;
     }
     public Data readDisk(){
         return disk.read();
@@ -430,14 +430,14 @@ class Holder<T>{
 用`extends`申明对参数类型的限制条件
 
 ```java
-interface HasColor{java.awt.Color getColor();}
+interface HasColor{ java.awt.Color getColor(); }
 
 class Colored <T extends HasColor>{...}
 
-class Dimension {public int x,y,z;}
+class Dimension { public int x,y,z; }
 
-class ColoredDimension <T extends  Has Color & Dimension>{...} //错误！
-class ColoredDimension <T extends Dimension & Has Color>{
+class ColoredDimension <T extends HasColor & Dimension>{...} //错误！
+class ColoredDimension <T extends Dimension & HasColor>{
     
 }
 ```
@@ -481,13 +481,12 @@ Plate<Fruit> p=new Plate<Apple>(new Apple()); //编译错误！
 
 “苹果” IS-A “水果”， BUT “装苹果的盘子” NOT-IS-A “装水果的盘子”！<!-- .element: class="fragment" -->
 
-Contravariance <!-- .element: class="fragment" -->
 
 ---
 
-## Contravariance
+## 协变与逆变
 
-<small>https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)</small>
+<small>https://zh.wikipedia.org/wiki/%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98</small>
 
 
 ---
