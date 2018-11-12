@@ -221,8 +221,7 @@ public RandomAccessFile(File file, String mode)
 
 ## I/O Summary
 
-![](images/Summary.png)<!-- .element height="60%" width="60%" -->
-
+\\\\\\\\\\\\\\\\
 ---
 
 ## Serializable
