@@ -209,7 +209,7 @@ public RandomAccessFile(File file, String mode)
  + r:表示以只读方式打开文件
  + rw:表示以读写方式打开文件，使用该模式只用一个对象即可同时实现读写操作。
 
---
+---
 
 ## 文件的压缩处理
 
