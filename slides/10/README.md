@@ -38,7 +38,7 @@
 
 - Java的I/O库提供了一个称做链接（Chaining）的机制，可以将一个流处理器跟另一个流处理器首尾相接，以其中之一的输出为输入，形成一个流管道的链接。
 
-![](images/Chaining.jpeg)<!-- .element height="80%" width="80%" -->
+![](images/Chaining.jpeg)<!-- .element height="50%" width="60%" -->
 
 ---
 
@@ -46,7 +46,7 @@
 
 - source可以是键盘输入、磁盘文件、物理设备、另外一个程序，或者同一个程序中的数组或字符串
 
-![](images/InputStream.jpeg)<!-- .element height="60%" width="60%" -->
+![](images/InputStream.jpeg)<!-- .element height="50%" width="60%" -->
 
 ---
 
@@ -54,7 +54,7 @@
 
 - destination可以是控制台、磁盘文件、物理设备、另外一个程序，或者同一个程序中的数组或字符串
 
-![](images/OutputStream.jpeg)<!-- .element height="60%" width="60%" -->
+![](images/OutputStream.jpeg)<!-- .element height="50%" width="60%" -->
 
 ---
 
@@ -90,7 +90,7 @@
 
 - InputStream类（抽象类）中包含一套所有输入都需要的方法，可以完成最基本的从输入流读入数据的功能。
 
-![](images/ByteInputStreamTree.png)<!-- .element height="60%" width="60%" -->
+![](images/ByteInputStreamTree.png)<!-- .element height="50%" width="60%" -->
 
 
 ---
@@ -99,7 +99,7 @@
 
 - OutputStream类（抽象类）中包含一套所有输出都需要的方法，可以完成最基本的向输出流写入数据的功能。
 
-![](images/ByteOutputStreamTree.jpg)<!-- .element height="60%" width="60%" -->
+![](images/ByteOutputStreamTree.jpg)<!-- .element height="50%" width="60%" -->
 
 ---
 
@@ -128,7 +128,7 @@
 
 ## 面向字符的输出流
 
-![](images/WriterTree.jpg)<!-- .element height="60%" width="60%" -->
+![](images/WriterTree.jpg)<!-- .element height="50%" width="50%" -->
 
 
 ---
@@ -221,7 +221,15 @@ public RandomAccessFile(File file, String mode)
 
 ## I/O Summary
 
-\\\\\\\\\\\\\\\\
+![](images/Summary.png)<!-- .element height="50%" width="50%" -->
+
+---
+
+## I/O Summary
+
+![](images/Hierarchy.png)<!-- .element height="50%" width="50%" -->
+
+
 ---
 
 ## Serializable
