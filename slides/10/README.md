@@ -282,8 +282,7 @@ public class Foo implements java.io.Serializable{
 - Externalizable接口
   + 实现Externalizable代替实现Serializable接口来对序列化过程进行控制。
   + Externalizable继承了Serializable接口，同时增添了两个方法：writeExternal()和readExternal()。
-
-
+  + Externalizable的序列化机制优先级要高于Serializable。 
 
 ---
 
