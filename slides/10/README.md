@@ -225,13 +225,6 @@ public RandomAccessFile(File file, String mode)
 
 ---
 
-## I/O Summary
-
-![](images/Hierarchy.png)<!-- .element height="50%" width="50%" -->
-
-
----
-
 ## Serializable
 
 - Java序列化，就是指将一个对象转化为二进制的<font color=red>byte</font>流，然后以文件的方式进行保存，或者通过网络传输。
