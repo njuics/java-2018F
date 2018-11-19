@@ -135,11 +135,11 @@ public class EchoServer {
 
 - Server-side programming
 
-1. Create a server socket and a common socket
-2. Enable the server socket listen
-3. Create an input stream and output steam for this common socket
-4. Read from the input stream or write to the output stream.
-5. Close all objects
+ +  Create a server socket and a common socket
+ +  Enable the server socket listen
+ +  Create an input stream and output steam for this common socket
+ +  Read from the input stream or write to the output stream.
+ +  Close all objects
 
 ---
 
@@ -195,13 +195,15 @@ public class EchoClient {
 
 ---
 
-## Client-side programming
+##  Example
 
-1. Open a socket.
-2. Open an input stream and output stream to the socket.
-3. Read from and write to the stream according to the server's protocol.
-4. Close the streams.
-5. Close the socket.
+- Client-side programming
+
+ + Open a socket.
+ + Open an input stream and output stream to the socket.
+ + Read from and write to the stream according to the server's protocol.
+ + Close the streams.
+ + Close the socket.
 
 ---
 
