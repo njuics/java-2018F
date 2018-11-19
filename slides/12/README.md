@@ -25,7 +25,7 @@
 
 ## JAVA GUI......过时了吗？
 
-![](images/JavaFX-Modena.png)<!-- .element height="60%" width="60%" -->
+![](images/JavaFX-Modena.png)<!-- .element height="60%" width="60%" -->
 
 ---
 
@@ -116,12 +116,6 @@
 ## Container Classes
 
 ![](images/ContainerClasses.jpeg)<!-- .element height="60%" width="60%" -->
-
----
-
-## GUI Helper Classes
-
-![](images/HelperClasses.jpeg)<!-- .element height="60%" width="60%" -->
 
 ---
 
@@ -442,7 +436,7 @@ public int getKeyCode()，获得按动的键码。</font>
 
 ## Graphics2D类的绘图方法
 
-- <font size=6>Java语言在Graphics类提供绘制各种基本的几何图形的基础上，扩展Graphics类提供一个Graphics2D类，它拥用更强大的二维图形处理能力,提供、坐标转换、颜色管理以及文字布局等更精确的控制。</font>
+- <font size=6>Java语言在Graphics类提供绘制各种基本的几何图形的基础上，扩展Graphics类提供一个Graphics2D类，它拥用更强大的二维图形处理能力，提供、坐标转换、颜色管理以及文字布局等更精确的控制。</font>
 
 - <font size=6>Graphics2D定义了几种方法，用于添加或改变图形的状态属性。可以通过设定和修改状态属性，指定画笔宽度和画笔的连接方式；设定平移、旋转、缩放或修剪变换图形；以及设定填充图形的颜色和图案等。图形状态属性用特定的对象存储。</font>
 
@@ -489,12 +483,55 @@ ActionEvent at a predefined rate.
 
 ---
 
-## 更多
+## JavaFX
 
-- JavaBeans
-- Flex
-- SWT
-- JavaFX
+- JavaFX is a set of graphics and media packages that enables developers to design, create, test, debug, and deploy rich client applications that operate consistently across diverse platforms.
+
+---
+
+## JavaFX key features
+
+- Java APIs
+- FXML and Scene Builder
+- WebView
+- Swing interoperability
+- Built-in UI controls and CSS
+- 3D Graphics Features
+- ......
+
+---
+
+## JavaFX Architecture
+
+![](images/jfxar_dt_001_arch-diag.png)<!-- .element height="60%" width="60%" -->
+
+---
+
+## JavaFX Samples
+
+```java
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
+public class MyApp extends Application {
+    public void start(Stage stage) {
+        Circle circ = new Circle(40, 40, 30);
+        Group root = new Group(circ);
+        Scene scene = new Scene(root, 400, 300);
+
+        stage.setTitle("My JavaFX Application");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
 
 ---
 
