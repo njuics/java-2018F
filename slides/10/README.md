@@ -308,7 +308,7 @@ public class Foo implements java.io.Serializable{
 
   + <font size=6>ByteBuffer, CharBuffer, DoubleBuffer, FloatBuffer, IntBuffer, LongBuffer, ShortBuffer...</font>
 
-![](http://tutorials.jenkov.com/images/java-nio/overview-channels-buffers.png)<!-- .element height="40%" width="40%" -->
+![](images/overview-channels-buffers.png)<!-- .element height="40%" width="40%" -->
 
 
 ---
@@ -319,7 +319,7 @@ public class Foo implements java.io.Serializable{
   + <font size=6>允许单线程处理多个Channel。</font>
   + <font size=6>要使用Selector，得向Selector注册Channel，然后调用它的select()方法。这个方法会一直阻塞到某个注册的通道有事件就绪。一旦这个方法返回，线程就可以处理这些事件。</font>
 
-![](http://tutorials.jenkov.com/images/java-nio/overview-selectors.png)<!-- .element height="40%" width="40%" -->
+![](images/overview-selectors.png)<!-- .element height="40%" width="40%" -->
 
 
 ---
