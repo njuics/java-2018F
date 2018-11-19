@@ -50,7 +50,6 @@
   + AWT
   + Swing
   + Java2D APIs
-  + Accessibility APIs
 - JDK 7 + 
   + JavaFX
 
@@ -63,6 +62,9 @@
 - Swing: AWT的改良版，在主平台提供的窗口中绘制和管理界面组件
   + javax. swing.*
   + java.awt.event.*
+- JavaFX: 应用于创建Rich Internet Applications (RIAs)
+  + javafx.application.*
+  + javafx.scene.*
 
 ---
 
@@ -306,7 +308,7 @@ class Terminator extends WindowAdapter {
 
 ## 布局设计
 
-- FlowLayout：依次放置组件。（panel,applet）
+- FlowLayout：依次放置组件。（panel，applet）
 - BorderLayout：将组件放置在边界上。(window, frame)
 - CardLayout：将组件像扑克牌一样叠放，而每次只能显示其中一个组件。
 - GridLayout：将显示区域按行、列划分成一个个相等的格子，组件依次放入这些格子中。
@@ -487,6 +489,8 @@ ActionEvent at a predefined rate.
 
 - JavaFX is a set of graphics and media packages that enables developers to design, create, test, debug, and deploy rich client applications that operate consistently across diverse platforms.
 
+- to build network-aware applications that are deployed across multiple platforms and display information in a high-performance modern user interface that features audio, video, graphics, and animation.
+
 ---
 
 ## JavaFX key features
@@ -497,7 +501,7 @@ ActionEvent at a predefined rate.
 - Swing interoperability
 - Built-in UI controls and CSS
 - 3D Graphics Features
-- ......
+- Canvas API, Pringting API, Rich Text Support, Multitouch Support...
 
 ---
 
@@ -535,7 +539,41 @@ public class MyApp extends Application {
 
 ---
 
-让你的葫芦娃们在图形界面里和妖精们战斗！
+## JavaFX Application Lifecycle
+
+- The entry point for JavaFX applications is the Application class.
+
+  + <small>1. Constructs an instance of the specified Application class</small>
+  + <small>2. Calls the init() method</small>
+  + <small>3. Calls the start(javafx.stage.Stage) method</small>
+  + <small>4. Waits for the application to finish, which happens when either of the following occur:</small>
+    + <small>the application calls Platform.exit()</small>
+    + <small>the last window has been closed and the implicitExit attribute on Platform is true</small>
+  + <small>5. Calls the stop() method</small>
+
+---
+
+## Scene
+
+![](images/helloworld_scenegraph.png)<!-- .element height="60%" width="60%" -->
+
+---
+
+## Stage
+
+- The JavaFX Stage class is the top level JavaFX container. 
+- The primary Stage is constructed by the platform. Additional Stage objects may be constructed by the application.
+- Stage objects must be constructed and modified on the JavaFX Application Thread.
+
+---
+
+## Colorful Samples
+
+- Are you ready for JavaFX?
+
+---
+
+让你的葫芦娃们在丰富多彩的图形界面里和妖精们战斗！
 
 ---
 
