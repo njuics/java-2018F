@@ -4,7 +4,7 @@
 “工欲善其事，必先利其器”
 
 
----
+~~~
 
 ## 自动构建 Build automation
 
@@ -12,7 +12,7 @@ Build automation is the process of automating the creation of a software build a
 
 -- Wikipedia<!-- .element align="right" -->
 
----
+~~~
 
 
 ## 自动构建工具
@@ -24,7 +24,7 @@ Build automation is the process of automating the creation of a software build a
 - Ant
 - Gradle
 
----
+~~~
 
 ## Make
 
@@ -45,7 +45,7 @@ $ make a.txt
 
 <small>http://www.ruanyifeng.com/blog/2015/02/make.html</small>
 
----
+~~~
 
 ## Maven
 
@@ -62,7 +62,7 @@ src
 pom.xml
 ```
 
----
+~~~
 
 ## 还是那个Math
 
@@ -109,7 +109,7 @@ public class Math {
 
 ``` 
 
----
+~~~
 
 ## 还是那个MathTest
 ```java
@@ -131,7 +131,7 @@ public class MathTest {
 }
 ```
 
----
+~~~
 
 ## 需要JUnit.jar怎么办？
 
@@ -159,7 +159,7 @@ public class MathTest {
 
 pom.xml
 
----
+~~~
 
 ## 自动化
 
@@ -171,16 +171,16 @@ $ mvn package
 
 Perfect! <!-- .element: class="fragment" -->
 
----
+~~~
 
 What‘s more?
 
----
+~~~
 
 
 自动构建你的葫芦娃
 
 
----
+~~~
 
 # END
