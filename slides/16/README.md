@@ -665,7 +665,7 @@ public class Watcher implements Observer {
 
 ## Are you ready?
 
-葫芦娃大战妖精 -----> 植物大战僵尸！
+葫芦娃大战妖精 --> 植物大战僵尸！
 
 ---
 
