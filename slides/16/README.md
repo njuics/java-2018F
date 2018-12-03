@@ -33,7 +33,7 @@
   + 掌握解决反复出现的问题的办法
   + 沟通的手段（设计词汇，文档）
 
-- 从这些实践证明是成功的设计中学习“设计
+- 从这些实践证明是成功的设计中学习“设计"
   + 反复阅读/反复应用/反复揣摩
 
 ---
@@ -161,6 +161,38 @@ class Monitor implements ActionListener {
 } 
 ```
 <span style="color:#0099ff">这是观察者模式</span><!-- .element: class="fragment" -->
+
+
+---
+
+
+## 遇到过哪些设计模式了？
+
+```java
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
+public class MyApp extends Application {
+    public void start(Stage stage) {
+        Circle circ = new Circle(40, 40, 30);
+        Group root = new Group(circ);
+        Scene scene = new Scene(root, 400, 300);
+
+        stage.setTitle("My JavaFX Application");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+<span style="color:#0099ff">这是模版方法模式</span><!-- .element: class="fragment" -->
 
 
 ---
