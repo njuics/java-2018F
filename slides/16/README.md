@@ -190,9 +190,7 @@ public class MyApp extends Application {
         launch(args);
     }
 }
-
 ```
-
 <span style="color:#0099ff">这是模版方法模式</span><!-- .element: class="fragment" -->
 
 
