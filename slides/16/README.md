@@ -190,6 +190,7 @@ public class MyApp extends Application {
         launch(args);
     }
 }
+
 ```
 
 <span style="color:#0099ff">这是模版方法模式</span><!-- .element: class="fragment" -->
@@ -209,7 +210,7 @@ public class MyApp extends Application {
 
 - 创建模式是对类的实例化过程的抽象化。
   + 怎样创建对象，创建哪些对象，如何组合和表示这些对象？
-  + 创建模式描述了怎样构造和封装这些动态决定
+  + 创建模式描述了怎样构造和封装这些动态决定。
 
 ---
 
@@ -393,8 +394,8 @@ public class ThreadSafeSingleton {
 
 ```java
     public abstract class WindowAdapter extends Object implements WindowListener, WindowStateListener, WindowFocusListener{
-	   windowClosed(WindowEvent e); 
-       windowClosing(WindowEvent e);
+	   public void windowClosed(WindowEvent e){}
+       public void windowClosing(WindowEvent e){}
        ...
     }
 
@@ -558,11 +559,11 @@ public boolean action(Event event, Object obj){
 
 ## 不同的实现
 
-- <font size=6>宽接口 VS. 窄接口</font>
+- 宽接口 VS. 窄接口
   + <font size=6>宽接口：一个聚集的接口提供了可以用来修改聚集元素的方法</font>
   + <font size=6>窄接口：一个聚集的接口没有提供修改聚集元素的方法</font>
 
-- <font size=6>白箱聚集 VS. 黑箱聚集</font>
+- 白箱聚集 VS. 黑箱聚集
   + <font size=6>白箱聚集：聚集对象为所有对象提供同一个接口(宽接口)</font>
   + <font size=6>聚集对象为迭代子对象提供一个宽接口，而为其它对象提供一个窄接口。同时保证聚集对象的封装和迭代子功能的实现。</font>
 
