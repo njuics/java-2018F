@@ -1,14 +1,22 @@
 
 ## 并发编程
 
-<small>--这可能是Slides最长的一章。</small>
+<small>The world is concurrent.</small>
 
+<small>https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html</small>
 
 ---
 
 "空间是并存事物的次序，或是同时发生的所有事物存在的次序"
 
---Leibniz <!-- .element align="right" -->
+-- Leibniz <!-- .element align="right" -->
+
+
+---
+
+"Concurrency occurs when two or more execution flows are able to run simultaneously." 
+
+-- Edsger Wybe Dijkstra <!-- .element align="right" -->
 
 
 ---
@@ -20,9 +28,16 @@
 ## 进程 vs. 线程
 
 - 进程：是系统进行资源分配和调度的一个独立单位，也是一个具有独立功能的程序；
-- 线程：线程依托于进程而存在,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。
+- 线程：线程依托于进程而存在，是CPU调度和分派的基本单位，它是比进程更小的能独立运行的基本单位。线程自己基本上不拥有系统资源，只拥有一点在运行中必不可少的资源(如程序计数器、一组寄存器和栈)，但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。
 
-<small>区别在于，进程属于资源分配的单位，而线程则是作业调度的单位；进程拥有自己的地址空间，而多个线程拥有自己的堆栈和局部变量，并共享所依托于进程的资源。</small>
+---
+
+## 进程 vs. 线程
+
+![](images/Process_Thread.png)<!-- .element height="50%" -->
+
+
+<span style="color:#0099ff"><small>区别在于，进程属于资源分配的单位，而线程则是作业调度的单位；进程拥有自己的地址空间，而多个线程拥有自己的堆栈和局部变量，并共享所依托于进程的资源。</small></span><!-- .element: class="fragment" -->
 
 ---
 
@@ -35,19 +50,142 @@
 ---
 
 ## 并发 vs 并行
-![](http://images.cnitblog.com/blog/94031/201307/01001508-e1a4c7ed78274ec4aa325b928af044e5.png)
+
+![](images/Parallel_Concurrency.png)<!-- .element height="50%" -->
+
 
 ---
 
 
 ## JVM Threads
 
-![](https://equinoxrar.files.wordpress.com/2014/08/threads1.png?w=705)
+![](images/JVM_Threads.png)<!-- .element height="50%" -->
 
 
 ---
 
 ## 基础篇
+
+---
+
+"Concurrent Programming in Java™: Design Principles and Patterns"
+
+![](images/DougLea.jpg)<!-- .element height="50%" -->
+
+
+---
+
+## Java 并发机制
+
+- 内置并发机制：对线程的直接支持
+
+- 并发对象模型：不纯粹的Active Object模型
+  + 同时存在 “主动”对象 和 “被动”对象
+
+- Java 1.5+ java.util.concurrent.*
+---
+
+## 接触过多线程程序了吗？
+
+
+```java
+
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class QuoteServerThread extends Thread {
+
+    protected DatagramSocket socket = null;
+    protected BufferedReader in = null;
+    protected boolean moreQuotes = true;
+
+    public QuoteServerThread() throws IOException {
+	      this("QuoteServerThread");
+    }
+
+    public QuoteServerThread(String name) throws IOException {
+        super(name);
+        socket = new DatagramSocket(4445);
+
+        try {
+            in = new BufferedReader(new FileReader("one-liners.txt"));
+        } catch (FileNotFoundException e) {
+            System.err.println("Could not open quote file. Serving time instead.");
+        }
+    }
+
+    public void run() {
+
+        while (moreQuotes) {
+            try {
+                byte[] buf = new byte[256];
+
+                // receive request
+                DatagramPacket packet = new DatagramPacket(buf, buf.length);
+                socket.receive(packet);
+
+                // figure out response
+                String dString = null;
+                if (in == null)
+                    dString = new Date().toString();
+                else
+                    dString = getNextQuote();
+
+                buf = dString.getBytes();
+
+		// send the response to the client at "address" and "port"
+                InetAddress address = packet.getAddress();
+                int port = packet.getPort();
+                packet = new DatagramPacket(buf, buf.length, address, port);
+                socket.send(packet);
+            } catch (IOException e) {
+                e.printStackTrace();
+		moreQuotes = false;
+            }
+        }
+        socket.close();
+    }
+
+    protected String getNextQuote() {
+        String returnValue = null;
+        try {
+            if ((returnValue = in.readLine()) == null) {
+                in.close();
+		moreQuotes = false;
+                returnValue = "No more quotes. Goodbye.";
+            }
+        } catch (IOException e) {
+            returnValue = "IOException occurred in server.";
+        }
+        return returnValue;
+    }
+}
+
+```
+
+---
+
+## 接触过多线程程序了吗？
+
+```java
+
+import java.io.*;
+
+public class QuoteServer {
+    public static void main(String[] args) throws IOException {
+        new QuoteServerThread().start();
+    }
+}
+
+```
+
+---
+
+## 创建线程
+
+- 实现Runnable接口
+- 继承Thread
 
 ---
 
@@ -97,7 +235,6 @@ public class MainThread {
 <small>`Runnable`接口仅仅定义“任务”</small>
 
 ---
-
 
 ## Thread
 
@@ -156,6 +293,14 @@ public class SimpleThread extends Thread {
 
 ---
 
+## WARNING
+
+- The run() method should not be called directly by the application. The system calls it.
+
+- If the run() method is called explicitly by the application then the code is executed sequentially not concurrently.
+
+---
+
 ## 多线程，走起
 
 ```java
@@ -169,6 +314,7 @@ public class MoreBasicThreads {
 ```
 
 直接启动多个`Thread`
+
 
 ---
 
@@ -210,9 +356,9 @@ public class FixedThreadPool {
     }
 }
 ```
-<small>创建一个固定线程数的线程池，在任何时候最多只有n个线程被创建。如果在所有线程都处于活动状态时，有其他任务提交，他们将等待队列中直到线程可用。如果任何线程由于执行过程中的故障而终止，将会有一个新线程将取代这个线程执行后续任务。</small>
+<small>创建一个固定线程数的线程池，在任何时候最多只有n个线程被创建。如果在所有线程都处于活动状态时，有其他任务提交，他们将等待队列中直到线程可用。如果任何线程由于执行过程中的故障而终止，将会有一个新线程取代这个线程执行后续任务。</small>
 
-<small>如果需要获得异步执行的任务的结果怎么办？</small><!-- .element: class="fragment" -->
+<small>如果需要获得异步执行的任务结果怎么办？</small><!-- .element: class="fragment" -->
 
 
 
@@ -294,7 +440,9 @@ public class FutureSimpleDemo {
 
 ---
 
-## SLEEP
+## SLEEP 
+
+- suspend execution for a specified period
 
 ``` java
 public class SleepingTask extends LiftOff {
@@ -322,19 +470,19 @@ public class SleepingTask extends LiftOff {
 }
 ```
 
-<small>运行结果看起来很均衡，但实际并不完全如此...</small> <!-- .element: class="fragment" -->
+<small>运行结果看起来很均衡，但实际并不完全如此...跟`yeild()`语义不一样</small> <!-- .element: class="fragment" -->
 
-跟`yeild()`语义不一样
+
 
 ---
 
 ## Yeild 让位 
 
-- `yield`和`sleep`的主要区别是
-  - yield方法会临时暂停当前正在执行的线程，来让有同样优先级的正在等待的线程有机会执行
-  - 如果没有正在等待的线程，或者所有正在等待的线程的优先级都比较低，那么该线程会继续运行
-  - 执行了yield方法的线程什么时候会继续运行由线程调度器来决定，不同的厂商可能有不同的行为
-  - yield方法不保证当前的线程会暂停或者停止，但是可以保证当前线程在调用yield方法时会放弃CPU。
+- `yield`和`sleep`的主要区别：
+  + <small>yield方法会临时暂停当前正在执行的线程，来让有同样优先级的正在等待的线程有机会执行</small>
+  + <small>如果没有正在等待的线程，或者所有正在等待的线程的优先级都比较低，那么该线程会继续运行</small>
+  + <small>执行了yield方法的线程什么时候会继续运行由线程调度器来决定，不同的厂商可能有不同的行为</small>
+  + <small>yield方法不保证当前的线程会暂停或者停止，但是可以保证当前线程在调用yield方法时会放弃CPU</small>
 
 
 ---
@@ -386,7 +534,7 @@ public class SimplePriorities implements Runnable {
 ---
 
 
-## Deamon 线程
+## Daemon 线程
 
 ``` java
 public class SimpleDaemons implements Runnable {
@@ -413,27 +561,25 @@ public class SimpleDaemons implements Runnable {
 }
 ```
 
-后台运行线程，当所有非后台线程结束时，应用退出，所有Deamon线程被杀😢
+后台运行线程，当所有非后台线程结束时，应用退出，所有Daemon线程被杀😢
 
 ---
 
-## 小结一下
+## Thread Identification
 
-Java关于线程编程的抽象
+- The identity of the currently running thread can be found using the <font color="red">currentThread</font> method.
+- This has a static modifier, which means that there is only one method for all instances of Thread objects.
+- The method can always be called using the <font color="red">Thread</font> class.
+  +  public static Thread currentThread();
 
-
-`Thread`对象像是运载火箭，`Runnable`的实现对象就是一个荷载（payload）
-
-
-Runnable/Callable --> Task <!-- .element: class="fragment" -->
-
-Thread --> let tasks go <!-- .element: class="fragment" -->
 
 
 ---
 
-## 中级篇
+## 线程是否结束？
 
+-  final boolean isAlive()  //很少用到
+-  final void join() throws InterruptedException  //等待所调用线程结束
 
 ---
 
@@ -495,101 +641,28 @@ public class Joining {
 
 ---
 
-## Uncaught Exceptions
+## 线程生命周期
 
-```java
-public class ExceptionThread implements Runnable {
-    public void run() {
-        throw new RuntimeException();
-    }
+![](images/thread-life-cycle.png)<!-- .element height="50%" -->
 
-    public static void main(String[] args) {
-        ExecutorService exec = Executors.newCachedThreadPool();
-        exec.execute(new ExceptionThread());
-    }
-}
-
-public class NaiveExceptionHandling {
-    public static void main(String[] args) {
-        try {
-            ExecutorService exec =
-                    Executors.newCachedThreadPool();
-            exec.execute(new ExceptionThread());
-        } catch (RuntimeException ue) {
-            // This statement will NOT execute!
-            System.out.println("Exception has been handled!");
-        }
-    }
-}
-```
-
-```
-Exception in thread "pool-1-thread-1" java.lang.RuntimeException
-	at concurrency.ExceptionThread.run(ExceptionThread.java:7)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-```
 
 ---
 
-UncaughtExceptionHandler
+## 小结一下
 
-```java
-class ExceptionThread2 implements Runnable {
-    public void run() {
-        Thread t = Thread.currentThread();
-        System.out.println("run() by " + t);
-        System.out.println(
-                "eh = " + t.getUncaughtExceptionHandler());
-        throw new RuntimeException();
-    }
-}
+Java关于线程编程的抽象
 
-class MyUncaughtExceptionHandler implements
-        Thread.UncaughtExceptionHandler {
-    public void uncaughtException(Thread t, Throwable e) {
-        System.out.println("caught " + e);
-    }
-}
 
-class HandlerThreadFactory implements ThreadFactory {
-    public Thread newThread(Runnable r) {
-        System.out.println(this + " creating new Thread");
-        Thread t = new Thread(r);
-        System.out.println("created " + t);
-        t.setUncaughtExceptionHandler(
-                new MyUncaughtExceptionHandler());
-        System.out.println(
-                "eh = " + t.getUncaughtExceptionHandler());
-        return t;
-    }
-}
+`Thread`对象像是运载火箭，`Runnable`的实现对象就是一个荷载（payload）
 
-public class CaptureUncaughtException {
-    public static void main(String[] args) {
-        ExecutorService exec = Executors.newCachedThreadPool(
-                new HandlerThreadFactory());
-        exec.execute(new ExceptionThread2());
-        exec.shutdown();
-    }
-}
-```
+
+Runnable/Callable --> Task <!-- .element: class="fragment" -->
+
+Thread --> let tasks go <!-- .element: class="fragment" -->
 
 ---
 
-## 或者简单一点
-
-``` java
-public class SettingDefaultHandler {
-    public static void main(String[] args) {
-        Thread.setDefaultUncaughtExceptionHandler(
-                new MyUncaughtExceptionHandler());
-        ExecutorService exec = Executors.newCachedThreadPool();
-        exec.execute(new ExceptionThread());
-    }
-}
-```
+## 中级篇
 
 ---
 
@@ -598,6 +671,92 @@ public class SettingDefaultHandler {
 一个葫芦娃在战场上可以随意走，多个葫芦娃在战场上是随意走，那就会撞头。
 
 因为一个空间位置，是不能共享的。
+
+---
+
+## View of OO System
+
+- System = objects + activities
+
+---
+
+## Object-centric view
+
+- A system is a collection of interconnected objects. But it is a structured collection, not a random object soup. Objects cluster together in groups, thus forming larger components and subsystems.
+
+---
+
+## Activity-centric view
+
+- A system is a collection of possibly concurrent activities. 
+- One logical activity may involve many threads. At a higher level, some of these activities represent system-wide use cases. 
+
+
+---
+
+## Correctness
+
+- Safety (object-centric):
+  + “Nothing bad ever happens to an object.”
+  + Safety failure lead to unintended behavior at run time — things just start going wrong. 
+- Liveness (activity-centric): 
+  + “Something eventually happens within an activity.”
+  + Liveness failures lead to no behavior — things just stop running. 
+
+
+---
+
+## Liveness
+
+- In live systems, every activity eventually progresses toward completion; every invoked method eventually executes. 
+
+
+---
+
+## Liveness Failures
+
+- Deadlock: Circular dependencies among locks
+
+- Livelock: A continuously retried action continuously fails.
+
+- Starvation: The JVM/OS fails ever to allocate CPU time to a thread. 
+
+- ...
+
+
+---
+
+## Strategies
+
+- Immutability
+
+- Synchronization
+
+- Confinement
+
+---
+
+## 回忆一下单例模式
+
+```java
+public class LazySingleton {
+	private static LazySingleton instance = null;
+	protected LazySingleton(){
+		System.out.println("Singleton's consturct method is invoked. " +
+				"This method should not be public");
+	}
+	//is it thread-safe? how to?
+	public static LazySingleton getInstance(){
+		if (instance == null){
+			instance = new LazySingleton();
+		}
+		return instance;
+	}
+	public void operation(){
+		System.out.println("LazySignleton.operation() is executed");
+	}
+}
+```
 
 ---
 
@@ -693,8 +852,7 @@ public class EvenChecker implements Runnable {
 ## Synchronized
 
 ``` java
-public class
-SynchronizedEvenGenerator extends IntGenerator {
+public class Synchronized EvenGenerator extends IntGenerator {
     private int currentEvenValue = 0;
 
     public synchronized int next() {
@@ -791,14 +949,9 @@ class PairManager2 extends PairManager {
 
 ---
 
-## Lock on Object
-![](http://4.bp.blogspot.com/-kRUcoXzDmAM/T48eQOjNzuI/AAAAAAAAA38/TaU6Eub90uA/s1600/Object-Monitor-Threads.PNG)
-
----
-
 ## Thread local Storage
 
-![](https://i.stack.imgur.com/Dhws6.jpg)
+![](images/ThreadLocal.jpg)<!-- .element height="50%" -->
 
 
 --- 
@@ -866,6 +1019,16 @@ notifyAll();
 ```
 
 `Object`类型上的三个方法
+
+---
+
+## Java Concurrency Models
+
+- wait: an unconditional suspension of the calling thread (the thread is placed on a queue associated with the condition variable)
+- notify: one thread is taken from the queue and re-scheduled for execution (it must reclaim the lock first)
+- notifyAll: all suspended threads are re-scheduled
+- notify and notifyAll have no effect if no threads are suspended on the condition variable
+
 
 ---
 
@@ -956,9 +1119,9 @@ public class WaxOMatic {
 
 ---
 
-## 线程状态
+## 再看一下线程状态
 
-![](https://www.w3resource.com/w3r_images/java-threadclass-methods-and-threadstates-jimage1.png)
+![](images/thread-life-cycle.png)<!-- .element height="50%" -->
 
 ---
 
@@ -966,8 +1129,7 @@ public class WaxOMatic {
 
 - 调用wait方法时，线程在等待的时候会释放掉它所获得的monitor，但是调用Thread.sleep()方法时，线程在等待的时候仍然会持有monitor或者锁，wait方法应在同步代码块中调用，但是sleep方法不需要
 - Thread.sleep()方法是一个静态方法，作用在当前线程上；但是wait方法是一个实例方法，并且只能在其他线程调用本实例的notify()方法时被唤醒
-
-如果需要暂停线程一段特定的时间就使用sleep()方法，如果要实现线程间通信就使用wait()方法。
+- 如果需要暂停线程一段特定的时间就使用sleep()方法，如果要实现线程间通信就使用wait()方法。
 
 ---
 
@@ -976,7 +1138,9 @@ public class WaxOMatic {
 
 ---
 
-## 高级设施
+## 高级设施 
+
+java.util.concurrent.*
 
 - `CountDownLatch`
 - `CyclicBarrier`
@@ -985,6 +1149,12 @@ public class WaxOMatic {
 - `ScheduledExector`
 - `Semaphore`
 - `Exchanger`
+
+---
+
+## 推荐
+
+![](images/Effective_Java.jpg)<!-- .element height="50%" -->
 
 
 
