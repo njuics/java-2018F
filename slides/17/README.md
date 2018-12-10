@@ -34,7 +34,7 @@
 
 ## 进程 vs. 线程
 
-![](images/Process_Thread.png)<!-- .element height="50%" -->
+![](images/Process_thread.png)<!-- .element height="50%" -->
 
 
 <span style="color:#0099ff"><small>区别在于，进程属于资源分配的单位，而线程则是作业调度的单位；进程拥有自己的地址空间，而多个线程拥有自己的堆栈和局部变量，并共享所依托于进程的资源。</small></span><!-- .element: class="fragment" -->
