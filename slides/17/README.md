@@ -5,6 +5,8 @@
 
 <small>https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html</small>
 
+🚺
+
 ---
 
 "空间是并存事物的次序，或是同时发生的所有事物存在的次序"
@@ -227,7 +229,7 @@ public class LiftOff implements Runnable {
 public class MainThread {
     public static void main(String[] args) {
         LiftOff launch = new LiftOff();
-        launch.run();
+        launch.run(); //is it a thread?
     }
 }
 ```
@@ -1146,7 +1148,7 @@ java.util.concurrent.*
 - `CyclicBarrier`
 - `DelayQueue`
 - `PriorityBlockingQueue`
-- `ScheduledExector`
+- `ScheduledExecutorService`
 - `Semaphore`
 - `Exchanger`
 
