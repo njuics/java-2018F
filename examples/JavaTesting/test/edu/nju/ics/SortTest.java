@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class SortTest {
 
-    @Test(timeout = 2000)
+    @Test(timeout = 5000)
     public void testSort() throws Exception {
         int[] arr = new int[50000]; //数组长度为50000
         int arrLength = arr.length;

@@ -17,7 +17,7 @@ public class SortTest {
             arr[i] = r.nextInt(arrLength);
         }
 
-        new Sort().sort(arr);
+        new Sort().qSort(arr);
     }
 
 }
