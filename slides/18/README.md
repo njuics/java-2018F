@@ -1,8 +1,7 @@
-# 大结局
 
 ## Lambda Expressions
 
-<small>--Since Java 8</small>
+さいしゅうかい
 
 
 ---
@@ -300,6 +299,6 @@ Lambda Quick Start
 http://www.oracle.com/webfolder/technetwork/tutorials/obe/java/Lambda-QuickStart/index.html
 ---
 
-# END
+# 終わり
 
 
