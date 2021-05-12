@@ -18,7 +18,7 @@
   "homepage": "https://github.com/njuics/java-2018f#readme",
   "dependencies": {
     "reveal-ga": "^0.2.0",
-    "reveal.js": "^3.8.0",
+    "reveal.js": "^3.9.2",
     "reveal.js-chalkboard": "^1.0.0",
     "reveal.js-menu": "^1.2.0"
   }
